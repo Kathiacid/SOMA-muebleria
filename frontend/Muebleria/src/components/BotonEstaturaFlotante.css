@@ -1,0 +1,64 @@
+.floating-estatura-btn {
+    position: fixed;
+    width: 90px;
+    height: 90px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #ff6b6b;
+    color: #F2EFDC;
+    
+
+    border-radius: 50% 50% 0 50%;
+    
+
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    
+    box-shadow: 0 8px 6px -6px black;
+    z-index: 100;
+    cursor: pointer;
+    
+    /* Animación */
+    will-change: transform;
+    transition: transform 450ms;
+}
+
+.floating-estatura-btn img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+}
+
+.floating-estatura-btn:hover {
+    transition: transform 125ms;
+    transform: translateY(-10px);
+}
+
+
+.floating-estatura-btn .tooltip {
+    visibility: hidden;
+    opacity: 0;
+    
+    position: absolute;
+    bottom: 70px; 
+    right: 0;
+    
+    background-color: #333;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 13px;
+
+    transition: opacity 0.3s, visibility 0.3s; 
+    
+    pointer-events: none; 
+}
+
+
+.floating-estatura-btn:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}

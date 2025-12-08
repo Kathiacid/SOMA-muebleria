@@ -1,0 +1,92 @@
+
+.sobre-nosotros-container {
+    background-color: #fcfcfc;
+    min-height: 100vh;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.sobre-nosotros-card {
+    background: #ffffff;
+    padding: 50px;
+    border-radius: 12px;
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 0 15px rgba(255, 107, 107, 0.1);
+}
+
+.sobre-nosotros-card h1 {
+    font-size: 2.8em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #FF6B6B;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.sobre-nosotros-card p {
+    font-size: 1.15em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #555;
+    text-align: left;
+}
+
+
+.sobre-nosotros-card p strong {
+    color: #FF6B6B;
+    font-weight: 700;
+}
+
+
+.sobre-nosotros-links {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn-enlace {
+    display: inline-block;
+    background-color: #FF6B6B;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-enlace:hover {
+    background-color: #d90000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 107, 107, 0.6);
+}
+
+@media (max-width: 600px) {
+    .sobre-nosotros-container {
+        padding: 30px 15px;
+    }
+
+    .sobre-nosotros-card {
+        padding: 30px 20px;
+    }
+    
+    .sobre-nosotros-card h1 {
+        font-size: 2em;
+    }
+
+    .sobre-nosotros-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

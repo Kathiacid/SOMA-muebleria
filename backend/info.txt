@@ -1,0 +1,84 @@
+
+pip install django 
+pip install djangorestframework
+python -m pip install Pillow
+pip install django-cors-headers
+
+
+
+1. API de Categorías
+Endpoint: /api/categorias/
+
+Operaciones:
+
+GET /api/categorias/ - Listar todas las categorías
+
+GET /api/categorias/{id}/ - Obtener una categoría específica
+
+POST /api/categorias/ - Crear nueva categoría (si tienes permisos)
+
+PUT/PATCH /api/categorias/{id}/ - Actualizar categoría
+
+DELETE /api/categorias/{id}/ - Eliminar categoría
+
+2. API de Productos
+Endpoint: /api/productos/
+
+Características especiales:
+
+Campos calculados: precio_calculado, precio_final_con_oferta, estado_oferta
+
+Requiere contexto de altura para cálculos de precio
+
+Operaciones:
+
+GET /api/productos/?altura=180 - Listar productos con precios calculados para altura específica
+
+GET /api/productos/{id}/?altura=180 - Producto específico con precios calculados
+
+POST /api/productos/ - Crear nuevo producto
+
+PUT/PATCH /api/productos/{id}/ - Actualizar producto
+
+DELETE /api/productos/{id}/ - Eliminar producto
+
+3. API de Solicitudes
+Endpoint: /api/solicitudes/
+
+Campos opcionales: telefono, altura_usuario, precio_calculado
+
+Operaciones:
+
+GET /api/solicitudes/ - Listar todas las solicitudes
+
+GET /api/solicitudes/{id}/ - Obtener solicitud específica
+
+POST /api/solicitudes/ - Crear nueva solicitud (probablemente para cotizaciones/pedidos)
+
+PUT/PATCH /api/solicitudes/{id}/ - Actualizar solicitud
+
+DELETE /api/solicitudes/{id}/ - Eliminar solicitud
+
+4. API de Productos Destacados
+Endpoint: /api/productos-destacados/
+
+Características: Incluye datos anidados del producto relacionado
+
+Operaciones:
+
+GET /api/productos-destacados/ - Listar productos destacados
+
+GET /api/productos-destacados/{id}/ - Obtener producto destacado específico
+
+POST /api/productos-destacados/ - Marcar producto como destacado
+
+PUT/PATCH /api/productos-destacados/{id}/ - Actualizar producto destacado
+
+DELETE /api/productos-destacados/{id}/ - Quitar producto de destacados
+
+Endpoints adicionales probables:
+/api/productos-destacados/activos/ - Solo productos destacados activos
+
+/api/categorias/{id}/productos/ - Productos por categoría
+
+/api/solicitudes/por-estado/ - Solicitudes filtradas por estado
