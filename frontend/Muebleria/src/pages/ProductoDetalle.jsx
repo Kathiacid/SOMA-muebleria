@@ -381,21 +381,87 @@ const ProductoDetalle = () => {
             )}
             
 
-            {showSuccessModal && (
-                <div className="modal-overlay">
-                    <div className="modal-contenido" style={{ maxWidth: '400px' }}>
-                        <h3 className="modal-titulo" style={{ color: '#34b1b1', marginBottom: '15px' }}>
-                            🎉 Pedido Enviado con Éxito
-                        </h3>
-                        <p style={{ textAlign: 'center', marginBottom: '30px', fontSize: '1.1rem' }}>
-                            Tu solicitud ha sido recibida. Te contactaremos pronto para confirmar los detalles.
-                        </p>
-                        <button className="btn-enviar" onClick={closeSuccessModal} style={{ width: '100%' }}>
-                            Entendido
-                        </button>
-                    </div>
+{showForm && (
+    <div className="modal-overlay">
+        <div className="modal-contenido modal-doble-columna"> {/* Clase nueva añadida */}
+            <button className="modal-cerrar" onClick={cerrarModal}>✕</button>
+            <h3 className="modal-titulo">Completa tus datos</h3>
+
+            <form onSubmit={handleSubmit} className="formulario-grid">
+                
+                {/* Columna Izquierda */}
+                <div className="form-group">
+                    <label>Nombre</label>
+                    <input type="text" name="nombre" value={formData.nombre} onChange={handleChange} required />
                 </div>
-            )}
+
+                <div className="form-group">
+                    <label>Correo electrónico</label>
+                    <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+                </div>
+
+                <div className="form-group">
+                    <label>Teléfono</label>
+                    <input type="tel" name="telefono" value={formData.telefono} onChange={handleChange} required />
+                </div>
+
+                {/* Columna Derecha */}
+                <div className="form-group">
+                    <label>Cantidad</label>
+                    <input type="number" name="cantidad" min="1" value={formData.cantidad} onChange={handleChange} required />
+                </div>
+
+                <div className="form-group">
+                    <label>Ciudad</label>
+                    <select name="ciudad" value={formData.ciudad} onChange={handleChange} required>
+                        <option value="Concepción">Concepción</option>
+                        {/* Agrega más ciudades si es necesario */}
+                    </select>
+                </div>
+
+                <div className="form-group">
+                    <label>Comuna</label>
+                    <select name="comuna" value={formData.comuna} onChange={handleChange} required>
+                        <option value="Concepción">Concepción</option>
+                        <option value="Talcahuano">Talcahuano</option>
+                        <option value="Chiguayante">Chiguayante</option>
+                        <option value="San Pedro de la Paz">San Pedro de la Paz</option>
+                        <option value="Hualpén">Hualpén</option>
+                    </select>
+                </div>
+
+                {/* Elementos que ocupan todo el ancho (Abajo) */}
+                <div className="form-group full-width">
+                    <label>Indicaciones opcionales</label>
+                    <textarea
+                        name="pedido_detallado"
+                        value={formData.pedido_detallado}
+                        onChange={handleChange}
+                        placeholder="Ej: Color preferido, detalles específicos, etc."
+                    />
+                </div>
+
+                <div className="recaptcha-container full-width">
+                    <ReCAPTCHA
+                        ref={recaptchaRef}
+                        sitekey="6LejYuUrAAAAAGH5AC6njVOlqHFDMxjlqfs_12Up" 
+                        onChange={handleRecaptchaChange}
+                    />
+                </div>
+
+                <p className="nota full-width">💡 En caso de cambiar la estatura, el precio se recalculará.</p>
+
+                <button 
+                    type="submit" 
+                    className="btn-enviar full-width" 
+                    disabled={loadingForm || !recaptchaToken}
+                >
+                    {loadingForm ? 'Enviando...' : 'Enviar pedido'}
+                </button>
+            </form>
+        </div>
+    </div>
+)}
             
             {mensaje && <p className="mensaje">{mensaje}</p>}
         </div>

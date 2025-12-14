@@ -1,92 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
-.sobre-nosotros-container {
-    background-color: #fcfcfc;
-    min-height: 100vh;
-    padding: 60px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-}
-
-.sobre-nosotros-card {
-    background: #ffffff;
-    padding: 50px;
-    border-radius: 12px;
-    max-width: 800px;
+.sobre-nosotros-wrapper {
     width: 100%;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 0 15px rgba(255, 107, 107, 0.1);
+    font-family: 'DM Sans', sans-serif;
+    color: #1a1a1a;
 }
 
-.sobre-nosotros-card h1 {
-    font-size: 2.8em;
+/* --- LAYOUT GENERAL --- */
+.sobre-nosotros-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* SECCIÓN 1: EL FUNDADOR */
+.section-founder {
+    background-color: #ffffff;
+    padding: 100px 0;
+}
+
+.about-image-col {
+    flex: 1;
+    position: relative;
+}
+
+.founder-img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    border-radius: 20px; /* Bordes redondeados como la foto */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.floating-quote {
+    position: absolute;
+    bottom: 40px;
+    right: -40px;
+    background-color: #ffffff;
+    padding: 30px;
+    width: 280px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.floating-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.floating-quote span {
+    font-size: 0.75rem;
     font-weight: 700;
-    color: #333;
-    margin-bottom: 25px;
-    border-bottom: 3px solid #FF6B6B;
-    display: inline-block;
-    padding-bottom: 10px;
+    color: #a86348; /* Terracota */
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.sobre-nosotros-card p {
-    font-size: 1.15em;
-    line-height: 1.8;
+.about-text-col {
+    flex: 1;
+}
+
+.eyebrow-text {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    color: #a86348;
+    font-weight: 700;
     margin-bottom: 20px;
-    color: #555;
-    text-align: left;
+    padding-left: 40px; /* Línea decorativa */
+    position: relative;
 }
 
-
-.sobre-nosotros-card p strong {
-    color: #FF6B6B;
-    font-weight: 700;
+.eyebrow-text::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 30px;
+    height: 1px;
+    background-color: #a86348;
 }
 
+.about-text-col h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 400;
+    margin-bottom: 30px;
+    color: #1a1a1a;
+}
 
-.sobre-nosotros-links {
+.about-text-col h1 em {
+    font-style: italic;
+    color: #a86348;
+}
+
+.about-body-text p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: #666666;
+    font-size: 1rem;
+}
+
+.stats-row {
+    display: flex;
+    gap: 60px;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.stat-item strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 5px;
+    color: #1a1a1a;
+}
+
+.stat-item span {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: #999999;
+    text-transform: uppercase;
+}
+
+/* --- SECCIÓN 2: NUESTRO ESPACIO (FONDO BEIGE) --- */
+.section-location {
+    background-color: #e8e4dc; /* Color beige de la foto */
+    padding: 100px 0;
+}
+
+/* Modificador para invertir el orden en escritorio si se desea, o mantenerlo */
+.sobre-nosotros-container.reverse-layout {
+    /* Mantenemos el orden HTML (Texto izquierda, Mapa derecha) */
+}
+
+.section-location h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.features-list {
     margin-top: 40px;
     display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.feature-item {
+    display: flex;
     gap: 20px;
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
     justify-content: center;
+    color: #a86348;
+    font-size: 1.2rem;
+    flex-shrink: 0;
 }
 
-.btn-enlace {
-    display: inline-block;
-    background-color: #FF6B6B;
-    color: white;
-    padding: 12px 25px;
+.feature-content h4 {
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #1a1a1a;
+}
+
+.feature-content p {
+    font-size: 0.9rem;
+    color: #666666;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* --- TARJETA DE MAPA --- */
+.map-container {
+    background-color: #f0f0f0; /* Color gris claro contenedor */
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+    border: 4px solid #ffffff; /* Borde blanco grueso como en la foto */
+    box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+}
+
+.map-bg {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 12px;
+    opacity: 0.8;
+}
+
+.location-card {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    right: 40px;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.loc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.loc-header h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.loc-badge {
+    font-size: 0.7rem;
+    color: #a86348;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.loc-details {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.loc-details li {
+    font-size: 0.9rem;
+    color: #666666;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.loc-details i {
+    color: #a86348;
+}
+
+.btn-directions {
+    width: 100%;
+    background-color: #333333; /* Botón oscuro */
+    color: #ffffff;
     border: none;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 1em;
-    font-weight: 600;
+    padding: 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 4px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.3s;
 }
 
-.btn-enlace:hover {
-    background-color: #d90000;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(255, 107, 107, 0.6);
+.btn-directions:hover {
+    background-color: #000000;
 }
 
-@media (max-width: 600px) {
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
     .sobre-nosotros-container {
-        padding: 30px 15px;
+        flex-direction: column;
+        gap: 50px;
     }
 
-    .sobre-nosotros-card {
-        padding: 30px 20px;
+    .about-image-col, .about-text-col {
+        width: 100%;
+    }
+
+    .founder-img {
+        height: 400px;
+    }
+
+    .floating-quote {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        margin-top: -40px;
+        z-index: 2;
+    }
+
+    .section-location .sobre-nosotros-container {
+        flex-direction: column-reverse; /* Mapa abajo en móvil */
     }
     
-    .sobre-nosotros-card h1 {
-        font-size: 2em;
+    .map-container {
+        padding: 10px;
     }
-
-    .sobre-nosotros-links {
-        flex-direction: column;
-        gap: 15px;
+    
+    .location-card {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        right: auto;
+        margin-top: -50px;
+        z-index: 2;
     }
 }

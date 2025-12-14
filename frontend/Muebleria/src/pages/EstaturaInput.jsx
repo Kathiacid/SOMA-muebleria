@@ -113,7 +113,7 @@ const EstaturaInput = () => {
                     <input
                         className="stature-input-field" 
                         type="text" 
-                        placeholder="Estatura en metros (ej: 1.75)"
+                        placeholder="Estatura "
                         value={valorEstatura}
                         onChange={handleInput}
                         onFocus={(e) => e.target.classList.add('focused-glow')}
