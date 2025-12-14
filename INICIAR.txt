@@ -1,0 +1,4 @@
+iniciar backend:
+
+.\venv\Scripts\activate
+cd

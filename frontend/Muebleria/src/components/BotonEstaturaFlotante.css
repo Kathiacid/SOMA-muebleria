@@ -1,64 +1,52 @@
+/* --- BOTÓN FLOTANTE ESTILO PÍLDORA (SOMA) --- */
 .floating-estatura-btn {
     position: fixed;
-    width: 90px;
-    height: 90px;
-    bottom: 40px;
-    right: 40px;
-    background-color: #ff6b6b;
-    color: #F2EFDC;
-    
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999; /* Asegura que flote sobre todo */
 
-    border-radius: 50% 50% 0 50%;
+    /* Forma y Fondo */
+    background-color: #A86348;
+    border-radius: 50px; /* Bordes totalmente redondos */
+    padding: 12px 25px;  /* Relleno para dar forma alargada */
     
-
-    display: flex; 
-    justify-content: center;
+    /* Alineación interna */
+    display: flex;
     align-items: center;
-    
-    box-shadow: 0 8px 6px -6px black;
-    z-index: 100;
+    justify-content: center;
+    gap: 12px; /* Espacio entre la imagen y el texto */
+
+    /* Estética Visual */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); /* Sombra suave */
+    border: 1px solid #f2f2f2; /* Borde muy sutil */
     cursor: pointer;
     
     /* Animación */
-    will-change: transform;
-    transition: transform 450ms;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.floating-estatura-btn img {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
-    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
-}
-
+/* Efecto al pasar el mouse */
 .floating-estatura-btn:hover {
-    transition: transform 125ms;
-    transform: translateY(-10px);
+    transform: translateY(-5px); /* Se eleva un poco */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-
-.floating-estatura-btn .tooltip {
-    visibility: hidden;
-    opacity: 0;
-    
-    position: absolute;
-    bottom: 70px; 
-    right: 0;
-    
-    background-color: #333;
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 4px;
-    white-space: nowrap;
+/* Estilo del Texto (ESTATURA / 1.70 M) */
+.floating-estatura-btn span {
+    font-family: 'DM Sans', sans-serif; /* Tu fuente principal */
+    color: #1a1a1a;            /* Color negro suave */
     font-size: 13px;
-
-    transition: opacity 0.3s, visibility 0.3s; 
-    
-    pointer-events: none; 
+    font-weight: 700;          /* Negrita */
+    letter-spacing: 1.5px;     /* Espaciado elegante entre letras */
+    text-transform: uppercase; /* Todo en mayúsculas */
 }
 
-
-.floating-estatura-btn:hover .tooltip {
-    visibility: visible;
-    opacity: 1;
+/* Estilo de la Imagen (/contorno.png) */
+.floating-estatura-btn img {
+    width: 22px; 
+    height: 22px;
+    object-fit: contain;
+    /* Si tu imagen es negra y la quieres color "terracota" como el diseño, 
+       puedes intentar descomentar este filtro: */
+    /* filter: sepia(1) saturate(5) hue-rotate(-30deg) brightness(0.9); */
 }

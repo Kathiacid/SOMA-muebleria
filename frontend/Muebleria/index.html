@@ -8,95 +8,79 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     
     <title>SOMA Muebleria</title>
   </head>
+  
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <footer>
-      <div class="item">
-        <img src="./src/assets/logo.png">
-      </div>
-      <div class="item" id="metodos">
-        <h2>Metodos de pago</h2>
-        <svg 
-        xmlns="http://www.w3.org/2000/svg" 
-        width="24" 
-        height="24" 
-        viewBox="0 0 24 24" 
-        fill="none" 
-        stroke="currentColor" 
-        stroke-width="2" 
-        stroke-linecap="round" 
-        stroke-linejoin="round"
-    >
-        <rect x="2" y="3" width="20" height="15" rx="2" ry="2"></rect>
-        <path d="M4 12h16"></path>
-        <path d="M12 18v3"></path>
-        <path d="M10 21h4"></path>
-    </svg>
-    <span>Transferencia Bancaria</span>
-    <svg 
-        xmlns="http://www.w3.org/2000/svg" 
-        width="24" 
-        height="24" 
-        viewBox="0 0 24 24" 
-        fill="none" 
-        stroke="currentColor" 
-        stroke-width="2" 
-        stroke-linecap="round" 
-        stroke-linejoin="round"
-    >
-        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-        <path d="M12 4v16"></path>
-        <circle cx="12" cy="12" r="3"></circle>
-    </svg>
-    <span>Efectivo</span>
-      </div>
-      <hr>
-      <div class="item" id="metodos">
-        <h2>RRSS</h2>
-        <a href="https://www.instagram.com">
-            <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="24" 
-                height="24" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                stroke-width="2" 
-                stroke-linecap="round" 
-                stroke-linejoin="round" 
-                class="feather feather-instagram"
-            >
+
+    <footer class="luxury-footer">
+      <div class="footer-container">
+        
+        <div class="footer-col brand-col">
+          <img src="./public/log-trasnparente.png" alt="SOMA Logo" class="footer-logo">
+          <p class="brand-desc">Diseño atemporal y calidad artesanal para crear el hogar de tus sueños.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explorar</h4>
+          <ul class="footer-links">
+            <li><a href="/catalogo">Catálogo</a></li>
+            <li><a href="/novedades">Novedades</a></li>
+            <li><a href="/nosotros">Sobre Nosotros</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Métodos de Pago</h4>
+          <ul class="payment-list">
+            <li class="payment-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="15" rx="2" ry="2"></rect>
+                <path d="M4 12h16"></path>
+                <path d="M12 18v3"></path>
+                <path d="M10 21h4"></path>
+              </svg>
+              <span>Transferencia</span>
+            </li>
+            <li class="payment-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                <path d="M12 4v16"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              <span>Efectivo</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Síguenos</h4>
+          <div class="social-icons">
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                 <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line>
-            </svg>
-        </a>
-        <a href="https://www.facebook.com/" target="_blank">
-        <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="24" 
-            height="24" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            stroke-width="2" 
-            stroke-linecap="round" 
-            stroke-linejoin="round" 
-            class="feather feather-facebook"
-        >
-            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-        </svg>
-      </a>
+              </svg>
+            </a>
+            <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
 
       </div>
-  </footer>
-  <div id="derechos">
-    <p>Todos los derechos reservados | Desarrollado por KAAL</p>
-  </div>
-  </body>
 
+      <div class="footer-bottom">
+        <p>Todos los derechos reservados | Desarrollado por <strong>KAAL</strong></p>
+      </div>
+    </footer>
+  </body>
 </html>

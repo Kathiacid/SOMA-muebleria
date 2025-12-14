@@ -19,7 +19,6 @@ export default function Navbar() {
     const manejarSubmit = (e) => {
         e.preventDefault();
         if (busqueda.trim() !== "") {
-            
             if (!estatura) {
                 navigate("/estatura");
             } else {
@@ -36,14 +35,12 @@ export default function Navbar() {
             return;
         }
 
-
         if (categoria === "todos") {
             navigate("/catalogo");
         } else {
             navigate(`/catalogo?categoria=${categoria}`);
         }
     };
-
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -58,7 +55,6 @@ export default function Navbar() {
         };
     }, []);
 
-
     const isItemActive = (path) => {
         if (path === "/catalogo") {
             return location.pathname.includes("catalogo");
@@ -66,131 +62,85 @@ export default function Navbar() {
         return location.pathname === path;
     };
     
-
     const handleEstaturaClick = () => {
         if (estatura === null) {
             navigate("/estatura");
-        } else {
         }
     }
 
-
     return (
-        <header className="header">
-            <div className="header-main">
-                <div className="container">
-                    <Link to="/" className="header-logo">
-                        <h2>SOMA</h2>
-                    </Link>
+        <div className="navbar-wrapper">
+            <div className="container">
+                
+                {/* 1. LOGO */}
+                <Link to="/" className="navbar-logo">
+                    <h2>SOMA</h2>
+                </Link>
 
-                    <nav className="desktop-navigation-menu">
-                        <ul className="desktop-menu-category-list" ref={navRef}>
-                            <li className={`menu-category ${isItemActive("/") ? "active" : ""}`}>
-                                <Link to="/" className="menu-title">
-                                    <span className="nav-text">Inicio</span>
-                                    <span className="underline-right"></span>
-                                </Link>
-                            </li>
+                {/* 2. MENÚ DE NAVEGACIÓN */}
+                <nav className="navbar-menu">
+                    <ul className="menu-list" ref={navRef}>
+                        <li className={`menu-item ${isItemActive("/") ? "active" : ""}`}>
+                            <Link to="/" className="menu-link">
+                                <span className="nav-text">Inicio</span>
+                                <span className="underline"></span>
+                            </Link>
+                        </li>
 
-                            <li 
-                                className={`menu-category ${isItemActive("/catalogo") ? "active" : ""}`}
-                                ref={catalogRef}
-                                onMouseEnter={() => setIsCatalogOpen(true)}
-                                onMouseLeave={() => setIsCatalogOpen(false)}
+                        <li 
+                            className={`menu-item ${isItemActive("/catalogo") ? "active" : ""}`}
+                            ref={catalogRef}
+                            onMouseEnter={() => setIsCatalogOpen(true)}
+                            onMouseLeave={() => setIsCatalogOpen(false)}
+                        >
+                            <span 
+                                className="menu-link catalog-trigger"
+                                onClick={() => navegarACatalogo("todos")}
                             >
-                                
-                                <span 
-                                    className="menu-title catalog-trigger"
-                                    onClick={() => navegarACatalogo("todos")}
-                                >
-                                    <span className="nav-text">Catálogo</span>
-                                    <span className="underline-right"></span>
-                                </span>
-                                
-                                
-                                <div className={`dropdown-panel ${isCatalogOpen ? "active" : ""}`}>
-                                    
-                                    
-                                    <div className="dropdown-panel-list">
-                                        <div className="menu-title">
-                                            <span >
-                                                Categorias principales
-                                            </span>
-                                        </div>
-
-                                        
-                                        <div className="panel-list-item">
-                                            <span onClick={() => navegarACatalogo("5")}>
-                                                Cocina
-                                            </span>
-                                        </div>
-                                        <div className="panel-list-item">
-                                            <span onClick={() => navegarACatalogo("6")}>
-                                                Baño
-                                            </span>
-                                        </div>
-                                        <div className="panel-list-item">
-                                            <span onClick={() => navegarACatalogo("10")}>
-                                                Habitación
-                                            </span>
-                                        </div>
-                                        <div className="panel-list-item">
-                                            <span onClick={() => navegarACatalogo("11")}>
-                                                Living & Comedor
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                    
-                                    <div className="dropdown-panel-list">
-                                        <div className="menu-title">
-                                            <span >
-                                                Otras Categorias
-                                            </span>
-                                        </div>
-                                        
-                                        <div className="panel-list-item">
-                                            <span onClick={() => navegarACatalogo("7")}>
-                                                Exterior
-                                            </span>
-                                        </div>
-                                        
-                                        <div className="panel-list-item">
-                                            <span onClick={() => navegarACatalogo("9")}>
-                                                Taller
-                                            </span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div className="dropdown-panel-list">
-                                        <div className="menu-title">
-                                            <span>Te podría interesar</span>
-                                        </div>
-                                        <div className="panel-list-item">
-                                            <span onClick={() => navegarACatalogo("ofertas")}>
-                                                Ofertas
-                                            </span>
-                                        </div>
-                                    </div>
+                                <span className="nav-text">Catálogo</span>
+                                <span className="underline"></span>
+                            </span>
+                            
+                            {/* DROPDOWN MENU */}
+                            <div className={`dropdown-panel ${isCatalogOpen ? "active" : ""}`}>
+                                <div className="dropdown-column">
+                                    <div className="column-title">Categorias principales</div>
+                                    <span className="dropdown-item" onClick={() => navegarACatalogo("5")}>Cocina</span>
+                                    <span className="dropdown-item" onClick={() => navegarACatalogo("6")}>Baño</span>
+                                    <span className="dropdown-item" onClick={() => navegarACatalogo("10")}>Habitación</span>
+                                    <span className="dropdown-item" onClick={() => navegarACatalogo("11")}>Living & Comedor</span>
                                 </div>
-                            </li>
+                                
+                                <div className="dropdown-column">
+                                    <div className="column-title">Otras Categorias</div>
+                                    <span className="dropdown-item" onClick={() => navegarACatalogo("7")}>Exterior</span>
+                                    <span className="dropdown-item" onClick={() => navegarACatalogo("9")}>Taller</span>
+                                </div>
+                                
+                                <div className="dropdown-column">
+                                    <div className="column-title">Te podría interesar</div>
+                                    <span className="dropdown-item" onClick={() => navegarACatalogo("ofertas")}>Ofertas</span>
+                                </div>
+                            </div>
+                        </li>
 
-                            <li className={`menu-category ${isItemActive("/sobrenosotros") ? "active" : ""}`}>
-                                <Link to="/sobrenosotros" className="menu-title">
-                                    <span className="nav-text">Sobre Nosotros</span>
-                                    <span className="underline-right"></span>
-                                </Link>
-                            </li>
-                        </ul>
-                    </nav>
+                        <li className={`menu-item ${isItemActive("/sobrenosotros") ? "active" : ""}`}>
+                            <Link to="/sobrenosotros" className="menu-link">
+                                <span className="nav-text">Sobre Nosotros</span>
+                                <span className="underline"></span>
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
 
-                    
-                    <div className="header-search-container">
+                {/* 3. BARRA DE BÚSQUEDA Y ESTATURA */}
+                <div className="navbar-actions">
+                    <div className="search-box">
                         <form onSubmit={manejarSubmit}>
                             <input 
                                 type="text" 
-                                className="search-field" 
-                                placeholder="Buscar productos..."
+                                className="search-input" 
+                                placeholder="Buscar..."
                                 value={busqueda}
                                 onChange={(e) => setBusqueda(e.target.value)}
                             />
@@ -200,16 +150,15 @@ export default function Navbar() {
                         </form>
                     </div>
 
-                    
-                    <div className="altura-navbar" onClick={handleEstaturaClick}>
+                    <div className="estatura-btn" onClick={handleEstaturaClick}>
                         <i className="fas fa-ruler-vertical"></i>
-                        <strong className="estatura-resaltada">
+                        <span className="estatura-text">
                             {estatura !== null ? `${estatura}m` : 'Ingresar'}
-                        </strong>
+                        </span>
                     </div>
-                    
                 </div>
+
             </div>
-        </header>
+        </div>
     );
 }

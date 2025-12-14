@@ -61,54 +61,145 @@ footer {
 }
 
 
-footer .item:first-child {
+/* --- FOOTER LUXURY STYLE --- */
 
+/* Contenedor Principal Oscuro */
+.luxury-footer {
+    background-color: #1a1a1a; /* Negro suave / Carbón */
+    color: #b0b0b0;            /* Texto gris claro */
+    font-family: 'Montserrat', sans-serif; /* Usando tu fuente actual */
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: grid;
+    /* Grid de 4 columnas como la imagen */
+    grid-template-columns: 1.5fr 1fr 1fr 1fr; 
+    gap: 3rem;
+}
+
+/* Estilos de Columnas */
+.footer-col h4 {
+    color: #ffffff;
+    font-family: 'Playfair Display', serif; /* Si tienes importada esta fuente, sino usará Montserrat */
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+/* Columna de Marca (Logo) */
+.footer-logo {
+    max-width: 120px;
+    margin-bottom: 1rem;
+    filter: brightness(0) invert(1); /* Vuelve tu logo blanco si es negro */
+}
+
+.brand-desc {
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+/* Listas de Enlaces */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-col a {
+    color: #b0b0b0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+    color: #c6a87c; /* Color dorado/terracota al pasar el mouse */
+}
+
+/* Métodos de Pago (Tus SVGs) */
+.payment-list .payment-item {
     display: flex;
-    flex-direction: column;
-    align-items: center; 
+    align-items: center;
+    gap: 10px;
+    color: #e0e0e0;
+}
+
+.payment-item svg {
+    stroke: #c6a87c; /* Iconos en color dorado */
+}
+
+/* Redes Sociales (Tus SVGs) */
+.social-icons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-icons a svg {
+    width: 24px;
+    height: 24px;
+    stroke: #ffffff;
+    transition: stroke 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover svg {
+    stroke: #c6a87c;
+    transform: translateY(-3px);
+}
+
+/* Barra Inferior (Derechos) */
+.footer-bottom {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
     text-align: center;
-}
-
-
-footer .item img {
-    width: 100px; 
-    height: 100px; 
-    border-radius: 50%; 
-    object-fit: contain; 
-    background-color: white; 
-    padding: 5px; 
-    box-shadow: 0 5px 15px rgba(236, 193, 193, 0.4); 
-    
-
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-footer .item img:hover {
-
-    transform: scale(1.05); 
-    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.6);
-}
-
-
-footer .item:nth-child(3) h2 {
-
-    margin-bottom: 5px; 
-}
-
-
-footer h2 {
-    color: #FF6B6B; 
-    font-size: 1.25rem;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-#derechos{
-    justify-items:center ;
-    background-color: #ff6b6b;
-    font-weight:500;
-}
-#metodos{
-    flex-direction: column;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.8rem;
+}
+
+.flag-icon {
+    width: 20px;
+    height: auto;
+    border-radius: 2px;
+}
+
+/* Responsive (Móvil) */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Una sola columna en celular */
+        text-align: center;
+        gap: 2.5rem;
+    }
+    
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .payment-list .payment-item {
+        justify-content: center;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+    }
 }
