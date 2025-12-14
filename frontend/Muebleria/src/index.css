@@ -157,7 +157,6 @@ footer {
     transform: translateY(-3px);
 }
 
-/* Barra Inferior (Derechos) */
 .footer-bottom {
     margin-top: 4rem;
     padding-top: 2rem;
@@ -180,10 +179,9 @@ footer {
     border-radius: 2px;
 }
 
-/* Responsive (Móvil) */
 @media (max-width: 768px) {
     .footer-container {
-        grid-template-columns: 1fr; /* Una sola columna en celular */
+        grid-template-columns: 1fr; 
         text-align: center;
         gap: 2.5rem;
     }

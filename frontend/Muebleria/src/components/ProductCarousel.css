@@ -1,16 +1,5 @@
-/* =========================================
-   PRODUCT CAROUSEL - ESTÉTICA SOMA
-   ========================================= */
-
-/* Importar fuentes */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
-
-/* =========================================
-           ESTILOS CSS
-           ========================================= */
-        
         * {
-            box-sizing: border-box; /* Vital para que el calc() funcione bien */
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
@@ -21,14 +10,14 @@
         }
 
         .product-carousel-container {
-            max-width: 1400px; /* Aumentado un poco para que 5 productos respiren mejor */
+            max-width: 1400px; 
             margin: 0 auto;
             position: relative;
             padding: 40px 20px;
         }
 
         .product-carousel {
-            overflow: hidden; /* Oculta lo que se sale del contenedor */
+            overflow: hidden; 
             position: relative;
             margin-bottom: 20px;
             padding: 10px 0;
@@ -38,10 +27,9 @@
             display: flex;
             transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
             width: 100%;
-            gap: 20px; /* Espacio entre tarjetas */
+            gap: 20px;
         }
 
-        /* --- TARJETA DE PRODUCTO --- */
         .product-card {
             background: #ffffff;
             border: none;
@@ -50,10 +38,6 @@
             flex-direction: column;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border-radius: 0;
-
-            /* --- CÁLCULO MATEMÁTICO PARA 5 COLUMNAS --- */
-            /* Fórmula: (100% - (Gap * 4 huecos)) / 5 items */
-            /* 20px * 4 = 80px */
             flex: 0 0 calc((100% - 80px) / 5);
             width: calc((100% - 80px) / 5);
             
@@ -66,10 +50,9 @@
             z-index: 2;
         }
 
-        /* --- IMAGEN --- */
         .product-image-container {
             width: 100%;
-            height: 250px; /* Ajustado para que no queden tan verticales al ser 5 */
+            height: 250px; 
             overflow: hidden;
             position: relative;
             background-color: #f0f0f0;
@@ -86,7 +69,6 @@
             transform: scale(1.08);
         }
 
-        /* --- INFORMACIÓN --- */
         .product-info {
             padding: 15px;
             text-align: left;
@@ -110,11 +92,12 @@
             font-weight: 500;
             color: #1a1a1a;
             font-family: 'Playfair Display', serif;
-            font-size: 1rem; /* Un poco más pequeño para que quepan bien */
+            font-size: 1rem; 
             text-decoration: none;
             line-height: 1.3;
             display: -webkit-box;
             -webkit-line-clamp: 2;
+            line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
             transition: color 0.3s;
@@ -138,14 +121,13 @@
             line-height: 1.5;
             display: -webkit-box;
             -webkit-line-clamp: 2;
+            line-clamp: 2;
             -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
+            overflow: hidden;        }
 
         .center-content {
     justify-content: center;
 }
-        /* --- CONTROLES --- */
         .carousel-controls {
             display: flex;
             justify-content: center;
@@ -183,18 +165,13 @@
             border-color: #ccc;
         }
 
-        /* --- RESPONSIVE --- */
-        
-        /* Tablet: 3 Productos */
         @media (max-width: 1024px) {
             .product-card {
-                /* (100% - (2 huecos * 20px)) / 3 */
                 flex: 0 0 calc((100% - 40px) / 3);
                 width: calc((100% - 40px) / 3);
             }
         }
 
-        /* Móvil: 1 Producto (Carrusel clásico) */
         @media (max-width: 600px) {
             .product-carousel-inner {
                 gap: 15px; 

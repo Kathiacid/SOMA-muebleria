@@ -1,59 +1,54 @@
-/* =========================================
-   RESET Y CONFIGURACIÓN BÁSICA
-   ========================================= */
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-/* --- CONTENEDOR PRINCIPAL DEL NAVBAR --- */
 .navbar-wrapper {
     padding: 15px 0;
     border-bottom: 1px solid #e0e0e0;
     background: #ffffff;
     width: 100%;
     position: relative;
-    z-index: 1001; /* Asegura que esté por encima del contenido */
+    z-index: 1001; 
 }
 
 .navbar-wrapper .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px; /* Espacio controlado para evitar choques */
+    gap: 20px; 
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    flex-wrap: nowrap; /* Fuerza a mantenerse en una sola línea */
+    flex-wrap: nowrap;
 }
 
-/* --- LOGO --- */
 .navbar-logo {
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: bold;
     color: #333333;
-    flex-shrink: 0; /* Evita que el logo se aplaste */
+    flex-shrink: 0; 
 }
 
 .navbar-logo h2 {
     margin: 0;
 }
 
-/* --- MENÚ DE NAVEGACIÓN --- */
 .navbar-menu {
     display: flex;
     flex-grow: 1;
     justify-content: center;
-    min-width: 0; /* Permite que el menú ceda espacio si es necesario */
+    min-width: 0;
 }
 
 .menu-list {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px; /* Espacio entre los items del menú */
+    gap: 30px; 
     margin: 0;
     padding: 0;
     list-style: none;
@@ -61,7 +56,7 @@
 
 .menu-item {
     position: relative;
-    white-space: nowrap; /* Evita que el texto se parta en dos líneas */
+    white-space: nowrap; 
 }
 
 .menu-link {
@@ -78,10 +73,9 @@
 }
 
 .menu-link:hover {
-    color: #ff6b6b; /* Color Salmón */
+    color: #ff6b6b; 
 }
 
-/* Subrayado animado */
 .underline {
     position: absolute;
     bottom: 0;
@@ -104,18 +98,16 @@
     color: #ff6b6b;
 }
 
-/* --- ACCIONES (BÚSQUEDA + ESTATURA) --- */
 .navbar-actions {
     display: flex;
     align-items: center;
     gap: 15px;
-    flex-shrink: 0; /* Evita que esta sección se colapse */
+    flex-shrink: 0; 
 }
 
-/* Barra de Búsqueda */
 .search-box {
     position: relative;
-    width: 200px; /* Ancho fijo para mantener el orden */
+    width: 200px; 
 }
 
 .search-input {
@@ -150,7 +142,6 @@
     color: #ff6b6b;
 }
 
-/* Botón de Estatura */
 .estatura-btn {
     display: flex;
     align-items: center;
@@ -174,36 +165,22 @@
     font-size: 16px;
 }
 
-
-/* =========================================
-   DROPDOWN MENU (AJUSTADO Y MEJORADO)
-   ========================================= */
 .dropdown-panel {
     position: absolute;
     top: 100%;
     left: 50%;
-    /* Centrado horizontal y ligero desplazamiento hacia abajo */
     transform: translateX(-50%) translateY(10px);
-    
     background: #ffffff;
-    
-    /* Configuración de Ancho Inteligente */
-    width: max-content; /* Se adapta al contenido real */
-    min-width: 450px;   /* Mínimo para que se vea elegante */
-    max-width: 85vw;    /* Límite para que NO se salga de la pantalla */
-    
-    /* Layout en Grid */
+    width: max-content; 
+    min-width: 450px;  
+    max-width: 85vw;  
     display: grid;
-    grid-template-columns: repeat(3, auto); /* 3 columnas que se ajustan solas */
-    gap: 40px; /* Espacio generoso entre columnas */
+    grid-template-columns: repeat(3, auto); 
+    gap: 40px; 
     padding: 30px;
-    
-    /* Estilos visuales */
     border: 1px solid #f8f9fa;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    
-    /* Animación de entrada */
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -211,7 +188,6 @@
     z-index: 1000;
 }
 
-/* Flechita decorativa superior (Tooltip) */
 .dropdown-panel::before {
     content: "";
     position: absolute;
@@ -225,7 +201,7 @@
     border-top: 1px solid #f8f9fa;
 }
 
-/* Mostrar al hacer hover en el padre (.menu-item) */
+
 .menu-item:hover .dropdown-panel {
     opacity: 1;
     visibility: visible;
@@ -236,7 +212,7 @@
 .dropdown-column {
     display: flex;
     flex-direction: column;
-    min-width: 130px; /* Ancho base por columna */
+    min-width: 130px; 
 }
 
 .column-title {
@@ -256,15 +232,15 @@
     padding: 6px 0;
     cursor: pointer;
     transition: color 0.2s, transform 0.2s;
-    white-space: nowrap; /* Evita roturas de línea en los items */
+    white-space: nowrap;
 }
 
 .dropdown-item:hover {
     color: #ff6b6b;
-    transform: translateX(5px); /* Efecto sutil de movimiento */
+    transform: translateX(5px); 
 }
 
-/* --- RESPONSIVE --- */
+
 @media (max-width: 1024px) {
     .navbar-wrapper .container {
         padding: 0 15px;
@@ -276,6 +252,6 @@
     }
     
     .search-box {
-        width: 160px; /* Búsqueda más pequeña en laptops */
+        width: 160px; 
     }
 }

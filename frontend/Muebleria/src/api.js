@@ -1,5 +1,5 @@
-// src/api.js
 import axios from "axios";
+
 function capitalizarPrimeraLetra(texto) {
     if (!texto) return '';
     return texto.charAt(0).toUpperCase() + texto.slice(1);
@@ -20,13 +20,13 @@ export const getCategorias = async () => {
     }
 };
 
-
 export const getProductos = async () => {
     try {
         const response = await axios.get(`${BASE_URL}productos/`);
         return response.data.map(prod => ({
             id: prod.id,
             imagen: prod.imagen,
+            imagenes_secundarias: prod.imagenes_secundarias || [], 
             nombre: prod.nombre,
             categoria: prod.categoria,
             stock: prod.stock,
@@ -35,6 +35,7 @@ export const getProductos = async () => {
             tipo_mueble: prod.tipo_mueble,
             altura: prod.altura,
             fecha_creacion: prod.fecha_creacion,
+            estado_oferta: prod.estado_oferta,
         }));
     } catch (error) {
         console.error("Error al obtener productos:", error);
@@ -48,6 +49,8 @@ export const getProductosEnOferta = async () => {
         return response.data.map(prod => ({
             id: prod.id,
             imagen: prod.imagen,
+            // 🚨 AGREGADO
+            imagenes_secundarias: prod.imagenes_secundarias || [],
             nombre: prod.nombre,
             categoria: prod.categoria,
             stock: prod.stock,
@@ -62,8 +65,6 @@ export const getProductosEnOferta = async () => {
         return [];
     }
 };
-
-
 
 export const getProductoById = async (id) => {
     try {
@@ -114,6 +115,7 @@ export const getProductosDestacados = async () => {
             producto_descripcion: item.producto_descripcion,
             producto_precio: item.producto_precio,
             producto_imagen: item.producto_imagen,
+            producto_imagenes_secundarias: item.producto_imagenes_secundarias || [],
             producto_tipo_mueble_display: item.producto_tipo_mueble_display,
         }));
     } catch (error) {
@@ -124,13 +126,12 @@ export const getProductosDestacados = async () => {
 
 export const getProductosRelacionados = async (productoId) => {
     try {
-
         const response = await axios.get(`${BASE_URL}productos/${productoId}/productos_relacionados/`);
         
-
         return response.data.map(prod => ({
             id: prod.id,
             imagen: prod.imagen,
+            imagenes_secundarias: prod.imagenes_secundarias || [],
             nombre: prod.nombre,
             precio_base: prod.precio_base, 
         }));

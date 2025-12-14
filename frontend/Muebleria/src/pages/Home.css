@@ -1,12 +1,8 @@
-/* Importar fuentes */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
-/* --- CONFIGURACIÓN GLOBAL --- */
 body {
 
     color: #1a1a1a;
     font-family: 'DM Sans', sans-serif;
-    /* Un sutil patrón de ruido o degradado ayuda a la profundidad */
     background-image: radial-gradient(#e6e6e6 1px, transparent 1px);
     background-size: 40px 40px; 
 }
@@ -15,14 +11,13 @@ body {
     overflow-x: hidden;
 }
 
-/* --- 1. HERO SECTION (CON VIDA) --- */
+
 .hero-section {
     display: flex;
     min-height: 85vh;
     padding: 0 5%;
     align-items: center;
     position: relative;
-    /* Degradado más complejo para dar volumen */
     background: linear-gradient(90deg, #fcfbf9 45%, rgba(255,255,255,0) 60%);
     z-index: 1;
 }
@@ -31,7 +26,6 @@ body {
     flex: 1;
     padding-right: 4rem;
     z-index: 2;
-    /* Animación de entrada suave */
     animation: slideInLeft 1s ease-out;
 }
 
@@ -46,7 +40,6 @@ body {
     position: relative;
 }
 
-/* Pequeña línea decorativa al lado del subtítulo */
 .subtitle::after {
     content: '';
     position: absolute;
@@ -64,7 +57,7 @@ body {
     font-weight: 400;
     margin-bottom: 1.5rem;
     color: #1a1a1a;
-    text-shadow: 2px 2px 0px rgba(255,255,255,0.5); /* Sutil relieve */
+    text-shadow: 2px 2px 0px rgba(255,255,255,0.5);
 }
 
 .italic-accent {
@@ -86,7 +79,6 @@ body {
     gap: 1.5rem;
 }
 
-/* Botones con efecto de llenado */
 .btn {
     padding: 1rem 2.5rem;
     font-size: 0.85rem;
@@ -111,7 +103,7 @@ body {
     content: '';
     position: absolute;
     top: 0; left: 0; width: 0%; height: 100%;
-    background: #a86348; /* Terracota al hover */
+    background: #a86348; 
     transition: width 0.4s ease;
     z-index: -1;
 }
@@ -134,17 +126,15 @@ body {
     flex: 1.2;
     height: 85vh;
     position: relative;
-    overflow: hidden; /* Importante para el zoom */
-    box-shadow: -20px 0 50px rgba(0,0,0,0.05); /* Sombra para separar del texto */
+    overflow: hidden; 
+    box-shadow: -20px 0 50px rgba(0,0,0,0.05); 
 }
 
 .hero-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Efecto Ken Burns (Zoom Lento Infinito) */
     animation: slowZoom 20s infinite alternate; 
-    
     mask-image: linear-gradient(to right, transparent 0%, black 15%);
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%);
 }
@@ -159,7 +149,6 @@ body {
     to { opacity: 1; transform: translateX(0); }
 }
 
-/* --- 2. ESPACIOS CURADOS (TARJETAS INTERACTIVAS) --- */
 .curated-section {
     padding: 6rem 5%;
     background-color: #f4f1ed;
@@ -196,12 +185,10 @@ body {
     height: 450px;
     overflow: hidden;
     cursor: pointer;
-    /* Sombra inicial suave */
     box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Al hacer hover, la tarjeta flota */
 .curated-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
@@ -218,7 +205,6 @@ body {
     transform: scale(1.1);
 }
 
-/* Gradiente que oscurece al hover */
 .curated-overlay {
     position: absolute;
     bottom: 0; left: 0; width: 100%; height: 100%;
@@ -244,13 +230,11 @@ body {
     transition: transform 0.4s ease;
 }
 
-/* Pequeña animación del texto al hover */
 .curated-card:hover .curated-overlay h3 {
     transform: translateY(-5px);
     color: #e0e0e0;
 }
 
-/* Añadir un pseudo-elemento de "Ver más" */
 .curated-overlay::after {
     content: 'Explorar →';
     color: #a86348;
@@ -270,14 +254,12 @@ body {
     transform: translateY(0);
 }
 
-/* --- 3. NUEVAS PIEZAS (CARRUSEL) --- */
 .new-pieces-section {
     padding: 6rem 5%;
     background-color: #fcfbf9;
     position: relative;
 }
 
-/* Decoración de fondo sutil */
 .new-pieces-section::before {
     content: 'SOMA';
     position: absolute;
@@ -285,7 +267,7 @@ body {
     left: -50px;
     font-size: 15rem;
     font-family: 'Playfair Display', serif;
-    color: rgba(0,0,0,0.02); /* Marca de agua casi invisible */
+    color: rgba(0,0,0,0.02); 
     pointer-events: none;
     z-index: 0;
 }
@@ -320,11 +302,9 @@ body {
 .carousel-container-styled {
     position: relative;
     z-index: 1;
-    /* Añadir sombra al contenedor del carrusel */
     padding: 10px 0;
 }
 
-/* --- 4. BENEFICIOS (CON MOVIMIENTO) --- */
 .benefits-bar {
     background-color: #2b2b2b;
     color: #e0e0e0;
@@ -352,10 +332,10 @@ body {
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Efecto de rebote en icono al hover */
+
 .benefit-item:hover .icon-gold {
     transform: scale(1.2);
-    color: #fff; /* Cambio de color al hover */
+    color: #fff; 
 }
 
 .benefit-item h4 {
@@ -378,7 +358,6 @@ body {
     display: block;
 }
 
-/* --- 5. TESTIMONIOS (TARJETAS ELEGANTES) --- */
 .testimonials-section {
     padding: 7rem 5%;
     text-align: center;
@@ -402,7 +381,7 @@ body {
     background: white;
     padding: 3rem;
     max-width: 500px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.03); /* Sombra difusa */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
     text-align: left;
     border: 1px solid #f2f2f2;
     position: relative;
@@ -415,7 +394,6 @@ body {
     box-shadow: 0 15px 50px rgba(0,0,0,0.08);
 }
 
-/* Icono de comillas decorativo en el fondo */
 .testimonial-card::before {
     content: '“';
     position: absolute;
@@ -462,7 +440,6 @@ body {
     font-size: 1.05rem;
 }
 
-/* --- 6. SOMA JOURNAL (CTA CON TEXTURA) --- */
 .journal-section {
     background-color: #a86348;
     /* Sutil gradiente para dar volumen */
@@ -474,7 +451,7 @@ body {
     overflow: hidden;
 }
 
-/* Círculos decorativos de fondo */
+
 .journal-section::before {
     content: '';
     position: absolute;
@@ -543,8 +520,6 @@ body {
     transition: background 0.3s;
 }
 .subscribe-form button:hover { background-color: #000; }
-
-/* --- ANIMACIONES GLOBALES --- */
 .fade-in { opacity: 1; transition: opacity 1.5s ease; }
 .fade-up { animation: fadeInUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; opacity: 0; }
 
@@ -553,7 +528,7 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- MOBILE --- */
+
 @media (max-width: 768px) {
     .hero-section { 
         flex-direction: column; 

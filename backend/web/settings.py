@@ -13,23 +13,13 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-%w&0z=7bd60+r@9_kd3xx$-wscqnl$qjii$zg^^c*1@ni&1yya'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -79,8 +69,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'web.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -89,9 +77,6 @@ DATABASES = {
     }
 }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -109,8 +94,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -121,13 +104,9 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
-
 STATIC_URL = 'static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = [
@@ -136,18 +115,14 @@ CORS_ALLOW_ALL_ORIGINS = [
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'  # Para Gmail
+EMAIL_HOST = 'smtp.gmail.com'  
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'alvaro.robles15081999@gmail.com'  # Tu email de Gmail
-EMAIL_HOST_PASSWORD = 'egyz ycez tayu mswq'  # Contraseña de aplicación
-DEFAULT_FROM_EMAIL = 'alvaro.robles15081999@gmail.com'  # Debe ser el mismo que EMAIL_HOST_USER
+EMAIL_HOST_USER = 'alvaro.robles15081999@gmail.com' 
+EMAIL_HOST_PASSWORD = 'egyz ycez tayu mswq'  
+DEFAULT_FROM_EMAIL = 'alvaro.robles15081999@gmail.com'  
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# settings.py
-# reCAPTCHA Configuration
-RECAPTCHA_SECRET_KEY = '6LejYuUrAAAAAHmyNA_J30PUex5G6Eo5aqbMTfDV'  # Tu SECRET KEY de reCAPTCHA
+RECAPTCHA_SECRET_KEY = '6LejYuUrAAAAAHmyNA_J30PUex5G6Eo5aqbMTfDV' 
 
-# Para desarrollo, puedes usar estas keys de prueba:
-# RECAPTCHA_SECRET_KEY = '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe'

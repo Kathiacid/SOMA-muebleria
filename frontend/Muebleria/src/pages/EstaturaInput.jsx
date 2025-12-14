@@ -13,15 +13,10 @@ const EstaturaInput = () => {
     const applyStatureEffect = (statureMeters) => {
         const avatar = liveAvatarRef.current;
         if (!avatar) return;
-
         const statureCmAdjusted = statureMeters * 100;
-
         const minStature = 100; 
         const maxStature = 250;
-        
-
         const scaleFactor = 0.7 + (statureCmAdjusted - minStature) / (maxStature - minStature) * 0.6;
-        
         avatar.style.transform = `scaleY(${scaleFactor})`;
     };
 

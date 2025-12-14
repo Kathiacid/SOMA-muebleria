@@ -1,11 +1,4 @@
-/* =========================================
-   INPUT ESTATURA - ESTÉTICA SOMA
-   ========================================= */
 
-/* Importar fuentes */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
-
-/* --- CONTENEDOR PRINCIPAL --- */
 .soma-container-full {
     display: flex;
     justify-content: center;
@@ -15,8 +8,6 @@
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
-    
-    /* Fondo con textura sutil SOMA */
     background-color: #fcfbf9;
     background-image: radial-gradient(#e3e3e3 1px, transparent 1px);
     background-size: 30px 30px;
@@ -24,48 +15,42 @@
     color: #1a1a1a;
 }
 
-/* Fondo extra si se usaba la clase futuristic, la reseteamos al estilo SOMA */
 .futuristic-background-soma {
-    background: transparent; /* Eliminamos gradientes radiales fuertes */
+    background: transparent;
 }
 
-/* --- TARJETA CENTRAL --- */
 .card-soma-input {
     background: #ffffff;
-    /* Eliminamos el backdrop-filter borroso estilo cristal */
     backdrop-filter: none;
     border: 1px solid #f0f0f0;
-    border-radius: 4px; /* Bordes más rectos, minimalistas */
+    border-radius: 4px; 
     padding: 60px 40px;
     width: 100%;
     max-width: 500px;
     text-align: center;
-    /* Sombra de elevación elegante */
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05); 
     transition: transform 0.5s ease-out;
     position: relative;
 }
 
-/* Efecto sutil al aparecer */
 .card-soma-input:hover {
     transform: translateY(-2px);
     box-shadow: 0 40px 70px rgba(0, 0, 0, 0.08);
 }
 
-/* --- TEXTOS --- */
 .title-soma-glow {
     font-family: 'Playfair Display', serif;
     font-size: 2.8rem;
     font-weight: 400;
     color: #1a1a1a; 
     margin-bottom: 15px;
-    text-shadow: none; /* Quitamos el brillo neón */
+    text-shadow: none; 
     letter-spacing: -0.5px;
 }
 
 .logo-text-soma {
     font-weight: 700;
-    color: #a86348; /* Terracota */
+    color: #a86348;
 }
 
 .subtitle-soma-welcome {
@@ -77,7 +62,7 @@
 }
 
 .warning-text-soma {
-    color: #a86348; /* Terracota para alertas */
+    color: #a86348;
     font-size: 0.85rem;
     margin-top: 15px;
     min-height: 1.2em;
@@ -85,7 +70,6 @@
     letter-spacing: 0.5px;
 }
 
-/* --- INPUT DE ESTATURA --- */
 .stature-input-group {
     display: flex;
     justify-content: center;
@@ -100,14 +84,14 @@
     width: 100%;
     max-width: 220px;
     border: none;
-    border-bottom: 2px solid #e0e0e0; /* Solo línea abajo */
+    border-bottom: 2px solid #e0e0e0;
     border-radius: 0;
     background-color: transparent;
     color: #1a1a1a; 
     text-align: center;
     transition: all 0.3s ease;
     outline: none;
-    font-family: 'Playfair Display', serif; /* Números elegantes */
+    font-family: 'Playfair Display', serif;
 }
 
 .stature-input-field::-webkit-outer-spin-button,
@@ -117,14 +101,12 @@
 }
 
 .stature-input-field:focus, .focused-glow {
-    border-color: #a86348; /* Terracota al enfocar */
-    box-shadow: none; /* Quitamos el resplandor */
+    border-color: #a86348;
+    box-shadow: none; 
 }
 
-/* Unidad (cm/m) */
 .input-unit {
     position: absolute;
-    /* Ajustamos posición según el diseño centrado */
     margin-left: 140px; 
     color: #999;
     font-weight: 400;
@@ -133,7 +115,6 @@
     font-family: 'DM Sans', sans-serif;
 }
 
-/* --- VISUALIZADOR (MUÑECO) --- */
 .live-visualizer-area {
     display: flex;
     justify-content: center;
@@ -142,44 +123,41 @@
     position: relative;
     margin-bottom: 40px;
     padding-bottom: 0;
-    border-bottom: 1px solid #e0e0e0; /* Línea de suelo sutil */
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .reference-line {
-    /* Opcional: línea extra de suelo */
     display: none; 
 }
 
 .live-avatar {
-    color: #a86348; /* Terracota */
+    color: #a86348; 
     margin-right: 40px;
     z-index: 10;
     transform-origin: bottom; 
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-    /* Sombra suave debajo del avatar */
     filter: drop-shadow(0 5px 3px rgba(0,0,0,0.1));
 }
 
 .live-avatar span {
-    font-size: 80px; /* Icono más grande */
+    font-size: 80px; 
     display: block;
     line-height: 1;
 }
 
 .reference-object {
     font-size: 50px;
-    color: #d0d0d0; /* Objeto de referencia en gris muy suave */
+    color: #d0d0d0; 
     z-index: 10;
     transform: translateY(0); 
 }
 
-/* --- BOTONES --- */
 .button-enter-soma {
-    background-color: #1a1a1a; /* Negro SOMA */
+    background-color: #1a1a1a;
     color: white;
     padding: 18px 40px;
     border: none;
-    border-radius: 0; /* Botón rectangular o levemente redondeado */
+    border-radius: 0; 
     font-size: 0.9rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -195,7 +173,7 @@
 }
 
 .button-enter-soma:hover {
-    background-color: #a86348; /* Terracota hover */
+    background-color: #a86348; 
     color: white;
     box-shadow: 0 10px 20px rgba(168, 99, 72, 0.2);
     transform: translateY(-2px);
@@ -237,7 +215,6 @@
     color: #1a1a1a;
 }
 
-/* --- ANIMACIONES --- */
 .fade-in-soma {
     opacity: 0;
     transform: translateY(20px);
@@ -277,7 +254,6 @@
     }
 }
 
-/* Animación de salida (Zoom Out / Fade Out elegante) */
 .animate-out-zoom {
     animation: zoomOut 0.6s ease-in forwards;
 }
@@ -289,7 +265,7 @@
     }
     100% {
         opacity: 0;
-        transform: scale(1.05); /* Zoom sutil hacia afuera */
+        transform: scale(1.05); 
         filter: blur(2px);
     }
 }

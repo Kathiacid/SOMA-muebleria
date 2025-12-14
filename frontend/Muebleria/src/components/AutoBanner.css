@@ -76,7 +76,7 @@
     right: 1rem;
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
     .auto-banner {
         height: 300px;

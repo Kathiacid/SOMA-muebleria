@@ -1,5 +1,3 @@
-// src/components/Navbar.jsx
-
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState, useContext, useEffect, useRef } from "react";
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -71,13 +69,9 @@ export default function Navbar() {
     return (
         <div className="navbar-wrapper">
             <div className="container">
-                
-                {/* 1. LOGO */}
                 <Link to="/" className="navbar-logo">
                     <h2>SOMA</h2>
                 </Link>
-
-                {/* 2. MENÚ DE NAVEGACIÓN */}
                 <nav className="navbar-menu">
                     <ul className="menu-list" ref={navRef}>
                         <li className={`menu-item ${isItemActive("/") ? "active" : ""}`}>
@@ -100,8 +94,6 @@ export default function Navbar() {
                                 <span className="nav-text">Catálogo</span>
                                 <span className="underline"></span>
                             </span>
-                            
-                            {/* DROPDOWN MENU */}
                             <div className={`dropdown-panel ${isCatalogOpen ? "active" : ""}`}>
                                 <div className="dropdown-column">
                                     <div className="column-title">Categorias principales</div>
@@ -132,8 +124,6 @@ export default function Navbar() {
                         </li>
                     </ul>
                 </nav>
-
-                {/* 3. BARRA DE BÚSQUEDA Y ESTATURA */}
                 <div className="navbar-actions">
                     <div className="search-box">
                         <form onSubmit={manejarSubmit}>

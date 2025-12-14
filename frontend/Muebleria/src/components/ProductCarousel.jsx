@@ -9,7 +9,6 @@ const ProductCarousel = () => {
     const [itemsPerPage, setItemsPerPage] = useState(5);
     const trackRef = useRef(null);
 
-    // 1. Cargar datos
     useEffect(() => {
         getProductosDestacados()
             .then(data => {
@@ -20,7 +19,6 @@ const ProductCarousel = () => {
             });
     }, []);
 
-    // 2. Determinar cuántos items se ven según el tamaño de pantalla
     useEffect(() => {
         const handleResize = () => {
             const width = window.innerWidth;
@@ -33,34 +31,25 @@ const ProductCarousel = () => {
             }
         };
 
-        // Ejecutar al inicio y al redimensionar
         handleResize();
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
-
-    // 3. Lógica de Centrado
-    // Si hay menos productos que huecos disponibles, se centran y deshabilitamos navegación.
     const isCentered = products.length > 0 && products.length <= itemsPerPage;
 
-    // 4. Calcular el desplazamiento (translateX)
-    const getTranslateX = () => {
-        if (isCentered) return 0; // Si está centrado, no se mueve
-        if (!trackRef.current) return 0;
 
-        // Obtenemos el ancho de la primera tarjeta
+    const getTranslateX = () => {
+        if (isCentered) return 0; 
+        if (!trackRef.current) return 0;
         const firstCard = trackRef.current.children[0];
         if (!firstCard) return 0;
 
         const itemWidth = firstCard.getBoundingClientRect().width;
-        // Obtenemos el gap computado (20px o 15px)
         const gap = parseFloat(window.getComputedStyle(trackRef.current).gap) || 0;
-        
-        // Movimiento: (Ancho item + Gap) * Índice actual
         return -(itemWidth + gap) * currentIndex;
     };
 
-    // 5. Handlers de botones
+
     const handleNext = () => {
         if (currentIndex < products.length - itemsPerPage) {
             setCurrentIndex(prev => prev + 1);
@@ -109,8 +98,6 @@ const ProductCarousel = () => {
                     ))}
                 </div>
             </div>
-
-            {/* Controles: Solo se muestran si NO está centrado (hay más productos que huecos) */}
             {!isCentered && products.length > 0 && (
                 <div className="carousel-controls">
                     <button 

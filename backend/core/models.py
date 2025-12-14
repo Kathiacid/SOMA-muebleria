@@ -1,7 +1,6 @@
 from django.db import models
 from decimal import Decimal
 from django.utils import timezone
-# Create your models here.
 
 
 class Categoria(models.Model):
@@ -13,7 +12,6 @@ class Categoria(models.Model):
         ('living comedor', 'Living & Comedor'),
         ('taller', 'Taller'),
         ('habitacion', 'Habitación'),
-        # 🚨 Nuevo valor para la categoría "Ofertas"
         ('ofertas', 'Ofertas'), 
     ]
     categorias = models.CharField(max_length=30, choices=TIPOS_CATEGORIA,default='sin categoria')
@@ -39,6 +37,8 @@ class Producto(models.Model):
     descripcion = models.TextField()
     precio_base = models.DecimalField(max_digits=10, decimal_places=2)
     imagen = models.ImageField(upload_to='producto/')
+    imagen_secundaria_1 = models.ImageField(upload_to='producto/secundarias/', null=True, blank=True)
+    imagen_secundaria_2 = models.ImageField(upload_to='producto/secundarias/', null=True, blank=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     tipo_mueble = models.CharField(max_length=20, 
                                 choices=TIPOS_MUEBLE, 
@@ -50,8 +50,6 @@ class Producto(models.Model):
     stock = models.BooleanField(default=True)  
     def __str__(self):
         return self.nombre
-    
-    #funcion de calculo de precio
 
     def calcular_precio_altura(self,altura_usuario):
         try:
@@ -61,30 +59,23 @@ class Producto(models.Model):
         
         if self.tipo_mueble == 'standard':
             return self.precio_base
-        
-        # reglas de aumento de precio segun tipo_mueble
+
         if Decimal('1.00') <= altura <= Decimal('1.50'):
-            aumento = Decimal('1.00')   # sin aumento
+            aumento = Decimal('1.00')  
         elif Decimal('1.51') <= altura <= Decimal('1.75'):
-            aumento = Decimal('1.15')   # +15%
+            aumento = Decimal('1.15') 
         elif altura >= Decimal('1.76'):
-            aumento = Decimal('1.25')   # +25%
+            aumento = Decimal('1.25') 
         else:
-            aumento = Decimal('1.00')   # valor por defecto
+            aumento = Decimal('1.00') 
 
         return self.precio_base * aumento 
     
-    # 🚨 FUNCIÓN MODIFICADA PARA TRIPLE PRECIO
     def obtener_precio_final(self, altura_usuario=None):
 
-        # 1. PRECIO AJUSTADO POR ALTURA (Precio "Antes" o de Referencia para Ofertas)
         precio_calculado_altura = self.calcular_precio_altura(altura_usuario)
-        
-        # 2. Inicializar valores
         precio_final = round(precio_calculado_altura, 2)
         descuento_aplicado = None
-        
-        # 3. BUSCAR OFERTA ACTIVA
         ofertas_activas = self.ofertas.filter(
             activa = True,
             fecha_inicio__lte=timezone.now(),
@@ -100,12 +91,10 @@ class Producto(models.Model):
             
             precio_final = round(precio_con_descuento, 2)
             descuento_aplicado = mejor_oferta.porcentaje_descuento
-        
-        # 🚨 RETORNA EL OBJETO COMPLETO DE PRECIOS
         return {
-            'precio_base': float(round(self.precio_base, 2)), # Precio de la BD
-            'precio_antes_oferta': float(round(precio_calculado_altura, 2)), # Precio ajustado por altura
-            'precio_final': float(precio_final), # Precio final con la mejor oferta
+            'precio_base': float(round(self.precio_base, 2)),
+            'precio_antes_oferta': float(round(precio_calculado_altura, 2)), 
+            'precio_final': float(precio_final), 
             'descuento_aplicado': float(descuento_aplicado) if descuento_aplicado else None,
         }
 

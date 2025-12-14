@@ -1,52 +1,38 @@
-/* --- BOTÓN FLOTANTE ESTILO PÍLDORA (SOMA) --- */
+
 .floating-estatura-btn {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    z-index: 9999; /* Asegura que flote sobre todo */
-
-    /* Forma y Fondo */
+    z-index: 9999; 
     background-color: #A86348;
-    border-radius: 50px; /* Bordes totalmente redondos */
-    padding: 12px 25px;  /* Relleno para dar forma alargada */
-    
-    /* Alineación interna */
+    border-radius: 50px;
+    padding: 12px 25px; 
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px; /* Espacio entre la imagen y el texto */
-
-    /* Estética Visual */
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); /* Sombra suave */
-    border: 1px solid #f2f2f2; /* Borde muy sutil */
+    gap: 12px; 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid #f2f2f2; 
     cursor: pointer;
-    
-    /* Animación */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Efecto al pasar el mouse */
 .floating-estatura-btn:hover {
-    transform: translateY(-5px); /* Se eleva un poco */
+    transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Estilo del Texto (ESTATURA / 1.70 M) */
 .floating-estatura-btn span {
-    font-family: 'DM Sans', sans-serif; /* Tu fuente principal */
-    color: #1a1a1a;            /* Color negro suave */
+    font-family: 'DM Sans', sans-serif; 
+    color: #fcfcfc;
     font-size: 13px;
-    font-weight: 700;          /* Negrita */
-    letter-spacing: 1.5px;     /* Espaciado elegante entre letras */
-    text-transform: uppercase; /* Todo en mayúsculas */
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase; 
 }
 
-/* Estilo de la Imagen (/contorno.png) */
 .floating-estatura-btn img {
     width: 22px; 
     height: 22px;
     object-fit: contain;
-    /* Si tu imagen es negra y la quieres color "terracota" como el diseño, 
-       puedes intentar descomentar este filtro: */
-    /* filter: sepia(1) saturate(5) hue-rotate(-30deg) brightness(0.9); */
 }

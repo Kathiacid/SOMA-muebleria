@@ -6,49 +6,36 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import './catalogo.css';
 
 const Catalogo = () => {
-    // --- Hooks y Estado ---
     const { estatura } = useContext(EstaturaContext);
     const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
-
     const categoriaURL = searchParams.get('categoria');
     const searchTerm = searchParams.get('search')?.toLowerCase() || "";
-
     const [categoriaActiva, setCategoriaActiva] = useState(categoriaURL || 'todos');
     const [productos, setProductos] = useState([]);
     const [categorias, setCategorias] = useState([]);
     const [cargando, setCargando] = useState(false);
 
-    // --- Efectos ---
-
-    // 1. Redireccionar si no hay estatura
     useEffect(() => {
         if (!estatura) {
             navigate('/');
         }
     }, [estatura, navigate]);
-
-    // 2. Sincronizar estado con URL
     useEffect(() => {
         setCategoriaActiva(categoriaURL || 'todos');
     }, [categoriaURL]);
 
-    // 3. Cargar Categorías
     useEffect(() => {
         const fetchCategorias = async () => {
             const data = await getCategorias();
             const ofertasId = 'ofertas';
-            // Cambiamos el emoji pegado por texto limpio
             const ofertasData = { id: ofertasId, categorias: 'Ofertas' }; 
-            
-            // Coloca ofertas primero, luego el resto
             const categoriasFinal = [ofertasData, ...data.filter(c => c.id !== ofertasId)];
             setCategorias(categoriasFinal);
         };
         fetchCategorias();
     }, []);
 
-    // 4. Cargar Productos y Calcular Precios
     useEffect(() => {
         const fetchProductos = async () => {
             if (!estatura) return;
@@ -63,8 +50,6 @@ const Catalogo = () => {
                 } else {
                     data = await getProductos();
                 }
-                
-                // Calcular precios ajustados según estatura
                 const productosConPrecio = await Promise.all(
                     data.map(async (prod) => {
                         const precioInfo = await getPrecioAjustado(prod.id, parseFloat(estatura));
@@ -88,9 +73,6 @@ const Catalogo = () => {
 
         fetchProductos();
     }, [estatura, categoriaActiva]); 
-
-    // --- Funciones Auxiliares ---
-
     const productosFiltrados = productos.filter(producto => {
         if (categoriaActiva === 'ofertas') {
             return searchTerm === "" || producto.nombre.toLowerCase().includes(searchTerm);
@@ -119,8 +101,6 @@ const Catalogo = () => {
         if (isNaN(valor)) return '$';
         return `$${new Intl.NumberFormat('es-ES').format(valor)}`;
     };
-
-    // --- Renderizado ---
     return (
         <div className="catalogo-container">
             <p>
@@ -128,7 +108,6 @@ const Catalogo = () => {
             </p>
             
             <div className="productos-info">
-                {/* Lógica para mostrar Icono FontAwesome en el Título */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                     {categoriaActiva === 'ofertas' ? (
                         <>
@@ -148,7 +127,6 @@ const Catalogo = () => {
             </div>
 
             <div className="catalogo-content">
-                {/* SIDEBAR DE FILTROS */}
                 <div className="filtros-sidebar">
                     <div className="filtros-header">
                         <h2>Categorías</h2>
@@ -171,7 +149,6 @@ const Catalogo = () => {
                                     className={`categoria-btn ${String(categoriaActiva) === String(cat.id) ? 'activa' : ''}`}
                                     onClick={() => handleCategoriaClick(cat.id)}
                                 >
-                                    {/* Renderizado condicional del icono en el botón */}
                                     {cat.id === 'ofertas' && (
                                         <i className="fa-solid fa-fire" style={{ marginRight: '8px' }}></i>
                                     )}
@@ -181,8 +158,6 @@ const Catalogo = () => {
                         ))}
                     </div>
                 </div>
-
-                {/* GRID DE PRODUCTOS */}
                 <div className="productos-area">
                     {cargando ? (
                         <div className="cargando">

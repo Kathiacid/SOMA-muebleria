@@ -1,6 +1,5 @@
 from django.contrib import admin
 from core.models import Categoria, Producto, Solicitud,ProductoDestacado,Oferta
-# Register your models here.
 admin.site.register(Categoria)
 admin.site.register(Producto)
 admin.site.register(Solicitud)
@@ -18,5 +17,4 @@ class ProductoDestacadoAdmin(admin.ModelAdmin):
 class OfertaAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'porcentaje_descuento', 'fecha_inicio', 'fecha_fin', 'activa')
     list_filter = ('activa', 'fecha_fin')
-    # 👇 Esto crea una interfaz mucho más amigable para seleccionar productos
     filter_horizontal = ('productos',)

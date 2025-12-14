@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
 
 .sobre-nosotros-wrapper {
     width: 100%;
@@ -6,7 +5,6 @@
     color: #1a1a1a;
 }
 
-/* --- LAYOUT GENERAL --- */
 .sobre-nosotros-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -16,7 +14,7 @@
     padding: 0 20px;
 }
 
-/* SECCIÓN 1: EL FUNDADOR */
+
 .section-founder {
     background-color: #ffffff;
     padding: 100px 0;
@@ -31,7 +29,7 @@
     width: 100%;
     height: 550px;
     object-fit: cover;
-    border-radius: 20px; /* Bordes redondeados como la foto */
+    border-radius: 20px; 
     box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
@@ -58,7 +56,7 @@
 .floating-quote span {
     font-size: 0.75rem;
     font-weight: 700;
-    color: #a86348; /* Terracota */
+    color: #a86348;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -75,7 +73,7 @@
     color: #a86348;
     font-weight: 700;
     margin-bottom: 20px;
-    padding-left: 40px; /* Línea decorativa */
+    padding-left: 40px;
     position: relative;
 }
 
@@ -133,16 +131,11 @@
     text-transform: uppercase;
 }
 
-/* --- SECCIÓN 2: NUESTRO ESPACIO (FONDO BEIGE) --- */
 .section-location {
-    background-color: #e8e4dc; /* Color beige de la foto */
+    background-color: #e8e4dc; 
     padding: 100px 0;
 }
 
-/* Modificador para invertir el orden en escritorio si se desea, o mantenerlo */
-.sobre-nosotros-container.reverse-layout {
-    /* Mantenemos el orden HTML (Texto izquierda, Mapa derecha) */
-}
 
 .section-location h2 {
     font-family: 'Playfair Display', serif;
@@ -189,13 +182,13 @@
     margin: 0;
 }
 
-/* --- TARJETA DE MAPA --- */
+
 .map-container {
-    background-color: #f0f0f0; /* Color gris claro contenedor */
+    background-color: #f0f0f0; 
     padding: 20px;
     border-radius: 20px;
     position: relative;
-    border: 4px solid #ffffff; /* Borde blanco grueso como en la foto */
+    border: 4px solid #ffffff; 
     box-shadow: 0 20px 50px rgba(0,0,0,0.05);
 }
 
@@ -261,7 +254,7 @@
 
 .btn-directions {
     width: 100%;
-    background-color: #333333; /* Botón oscuro */
+    background-color: #333333; 
     color: #ffffff;
     border: none;
     padding: 12px;
@@ -278,7 +271,6 @@
     background-color: #000000;
 }
 
-/* --- RESPONSIVE --- */
 @media (max-width: 992px) {
     .sobre-nosotros-container {
         flex-direction: column;
@@ -303,7 +295,7 @@
     }
 
     .section-location .sobre-nosotros-container {
-        flex-direction: column-reverse; /* Mapa abajo en móvil */
+        flex-direction: column-reverse; 
     }
     
     .map-container {

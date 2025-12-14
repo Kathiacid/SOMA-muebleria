@@ -6,14 +6,12 @@ import './sobreNosotros.css';
 const SobreNosotros = () => {
   return (
     <div className="sobre-nosotros-wrapper">
-      
-      {/* --- SECCIÓN 1: EL FUNDADOR (Fondo Blanco) --- */}
       <section className="section-founder">
         <div className="sobre-nosotros-container">
           
           <div className="about-image-col">
             <img 
-              src="https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=1000&auto=format&fit=crop" 
+              src="https://d22fxaf9t8d39k.cloudfront.net/70e5aad3ab30a396e5a2861cbc51718366bbc1a16e6d22977968976dbff1032463808.png" 
               alt="Mueble SOMA" 
               className="founder-img"
             />
@@ -31,8 +29,8 @@ const SobreNosotros = () => {
             
             <div className="about-body-text">
               <p>
-                Con más de 15 años de experiencia diseñando estructuras residenciales, 
-                Mateo Soma notó un patrón recurrente: espacios hermosos arruinados por 
+                Con estudios en arquitectura, enfocado en la ergonomía, 
+                Cristobal Fernandez notó un patrón recurrente: espacios hermosos arruinados por 
                 mobiliario estandarizado que ignoraba la antropometría humana.
               </p>
               <p>
@@ -56,8 +54,6 @@ const SobreNosotros = () => {
 
         </div>
       </section>
-
-      {/* --- SECCIÓN 2: NUESTRO ESPACIO (Fondo Beige) --- */}
       <section className="section-location">
         <div className="sobre-nosotros-container reverse-layout">
           
@@ -67,8 +63,8 @@ const SobreNosotros = () => {
             
             <div className="about-body-text">
               <p>
-                Ubicados en el corazón de la región del Biobío, nuestro estudio en Concepción 
-                es un espacio donde la arquitectura y el mobiliario convergen. Te invitamos a 
+                Ubicados en el corazón de la región del Biobío,en Concepción creamos
+                en un espacio donde la arquitectura y el mobiliario convergen. Te invitamos a 
                 experimentar la materialidad y ergonomía de nuestras piezas en persona.
               </p>
             </div>
@@ -79,8 +75,8 @@ const SobreNosotros = () => {
                   <i className="fa-solid fa-store"></i>
                 </div>
                 <div className="feature-content">
-                  <h4>Showroom & Estudio</h4>
-                  <p>Un ambiente curado para inspirar y probar cada diseño en un entorno real.</p>
+                  <h4>Catalogo</h4>
+                  <p>Productos centralizados en una sola pagina web.</p>
                 </div>
               </div>
 
@@ -100,23 +96,19 @@ const SobreNosotros = () => {
                 </div>
                 <div className="feature-content">
                   <h4>Atención Personalizada</h4>
-                  <p>Agenda una visita para recibir consultoría arquitectónica directa.</p>
+                  <p>Atencion directa por cooreo o puedes agendar una visita.</p>
                 </div>
               </div>
             </div>
           </div>
 
           <div className="about-image-col map-col">
-            {/* Contenedor del Mapa/Imagen */}
             <div className="map-container">
-                {/* Imagen de fondo (Mapa o Local) */}
                 <img 
                   src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop" 
                   alt="Mapa ubicación" 
                   className="map-bg"
                 />
-                
-                {/* Tarjeta Flotante de Dirección */}
                 <div className="location-card">
                     <div className="loc-header">
                         <h3>SOMA Concepción</h3>
